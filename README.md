@@ -1,10 +1,10 @@
 # The effect of netlist order on QoR of PathFinder
-The order in which PathFinder routes nets significantly effects the QoR in terms of critical path delay, as identified by [Rubin and DeHon](https://ic.ese.upenn.edu/pdf/pathfinder_noise_fpga2011.pdf).
+The order in which PathFinder routes nets significantly effects the QoR in terms of critical path delay (CPD), as identified by [Rubin and DeHon](https://ic.ese.upenn.edu/pdf/pathfinder_noise_fpga2011.pdf).
 
-This project attempts to understand how different orderings of nets affect the QoR, and aims to provide an alternative approach to sorting the netlist.
+This project attempts to understand how different orderings of nets affect resulting CPD, and aims to provide an alternative approach to sorting the netlist.
 
 # VPR's implementation of PathFinder
-All experiments are pefromed using VPR version 9.0.0.
+All experiments are pefromed using [VPR](https://github.com/verilog-to-routing/vtr-verilog-to-routing/tree/master/vpr) version 9.0.0.
 
 With the goal of evaluating different netlist orders, SerialNetlistRouter.tpp was modified.
 
