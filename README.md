@@ -18,7 +18,7 @@ Instead of sortin by fanout size
 ```
 VPR loads netlist permutations from a .csv file updated either manually or by a Python script:
 ```cpp
-  std::string csv_filename = "../../vtr-verilog-to-routing/test_folder/current_permutation.csv";
+  std::string csv_filename = "path/to/order_file.csv";
   std::ifstream file(csv_filename);
 
   if (!file.is_open()) {
