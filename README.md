@@ -51,11 +51,11 @@ VPR loads netlist permutations from a .csv file updated either manually or by a 
       /* Sort sorted_nets based on CSV order */
       std::stable_sort(sorted_nets.begin(), sorted_nets.end(), 
           [&](ParentNetId id1, ParentNetId id2) {
-              // Get net names
+              /* Get net names */
               std::string name1 = _net_list.net_name(id1);
               std::string name2 = _net_list.net_name(id2);
               
-              // Find their positions in CSV (nets not in CSV will go to end)
+              /* Find their positions in CSV */
               auto it1 = net_name_to_order.find(name1);
               auto it2 = net_name_to_order.find(name2);
               
