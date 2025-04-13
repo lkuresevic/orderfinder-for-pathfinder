@@ -18,6 +18,7 @@ Instead of sortin by fanout size
 ```
 VPR loads netlist permutations from a .csv file updated either manually or by a Python script:
 ```cpp
+  auto sorted_nets = std::vector<ParentNetId>(_net_list.nets().begin(), _net_list.nets().end());
   std::string csv_filename = "path/to/order_file.csv";
   std::ifstream file(csv_filename);
 
