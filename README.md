@@ -29,7 +29,7 @@ VPR loads netlist permutations from a .csv file updated either manually or by a 
       });
   }
   else {
-      // Read net names from CSV in order
+      /* Read net names from CSV in order */
       std::vector<std::string> csv_net_names;
       std::string line;
       while (std::getline(file, line)) {
@@ -42,13 +42,13 @@ VPR loads netlist permutations from a .csv file updated either manually or by a 
           }
       }
 
-      // Create a mapping from net name to its desired position
+      /* Create a mapping from net name to its desired position */
       std::unordered_map<std::string, size_t> net_name_to_order;
       for (size_t i = 0; i < csv_net_names.size(); ++i) {
           net_name_to_order[csv_net_names[i]] = i;
       }
 
-      // Sort sorted_nets based on CSV order
+      /* Sort sorted_nets based on CSV order */
       std::stable_sort(sorted_nets.begin(), sorted_nets.end(), 
           [&](ParentNetId id1, ParentNetId id2) {
               // Get net names
