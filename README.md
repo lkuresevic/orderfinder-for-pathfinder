@@ -3,7 +3,7 @@ The order in which PathFinder routes nets significantly effects the QoR in terms
 
 This project attempts to understand how different orderings of nets affect resulting CPD, and aims to provide an alternative approach to sorting the netlist.
 
-You can read the first experiment report [here](https://github.com/lkuresevic/orderfinder-for-pathfinder/Report_1.md).
+You can read the first experiment report [here](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1.md).
 
 # VPR's implementation of PathFinder
 All experiments are pefromed using [VPR](https://github.com/verilog-to-routing/vtr-verilog-to-routing/tree/master/vpr) version 9.0.0.
