@@ -24,19 +24,18 @@ Most of our metrics required for the netlist to be sorted after placement, which
 
 ![Table 1](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_1.png)
 
-While, through chance, fanouts\_size failed to dominate any of the placements and got significantly outshined at times, it was evident that no single metric or random permutation performed universaly well, or even with reliable quallity.
-Although the impact netlist order has on PathFinder's QoR is undisputable, it appears to have little to do with giving priority to high fanout nets, as fanouts_size_i (the complete inverse of the current approach) outperformed fanouts_size in 3 out of 5 tests.
+While fanouts_size got significantly outshined at times, it was evident that no single metric or random permutation performed universally well, or even with reliable quality. Although the impact netlist order has on PathFinder's QoR is undisputable, it appears to have _little to do with giving priority to high fanout nets_, as fanouts_size_i (the complete inverse of the current approach) outperformed fanouts_size in 3 out of 5 tests.
 
-To further solidify this fact, we sorted the netlist by fanouts size in descending order, and then randomly shuffled the positions of the first 14 elements (the highest fanout ones). Displayed below are 5 best and 5 worst results obtained by using these slightly modified netlists.
+To further solidify _this_ fact, we sorted the netlist by fanout size in descending order, and then randomly shuffled the positions of the first 14 elements (the highest fanout ones). Displayed below are the 5 best and 5 worst results obtained by using these slightly modified netlists.
 
 ![Table 2](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_2.png)
 
 # The Impact of A Single Swap
-In order to try and identify which order alterations have the biggest impact, swapped an element in the netlist vector (sorted by fanouts_size, decreasing) with its successor and ran routing, for every net in the netlist (except the last one). We then did the same over all placements we used in the previous experiments.
-We came to the following conclusions:
+In order to identify which order alterations have the greatest impact, we swapped each element in the netlist vector (originally sorted by fanouts_size in decreasing order) with its immediate successor, running routing after each swap—this was done for every net in the list except the last one. We repeated this process across all placements used in the previous experiments.
+We arrived at the following conclusions:
 
 ## The relative position of nets being swapped matters...
-...as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quantiy (no effect on/improved/worsened CPD).
+...as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quality (no effect on/improved/worsened CPD).
 
 ![A](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_A.png)
 ![B](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_B.png)
@@ -47,6 +46,6 @@ We came to the following conclusions:
 We anticipated this when designing our matrics, but failed to predict in what way.
 
 ## A single swapping of two (even neighbouring) elements can significantly increase/decrease CPD 
-Although all of these netlists were two inversions away from eachother (and one from the starting order) their QoR substantially differed. This highlights the fact that netlist order affects CPD through leaving PathFinder unable to use certain routing resources. Perhaps instead of looking for an approach to sort the netlist as optimally as possible, finding a way to predict which swaps imrove QoR presents a more computationally achievable goal that insists on the same insights.
+Although all of these netlists were just two inversions apart from each other (and one from the starting order), their QoR varied substantially. Rather than aiming to develop an approach for sorting the netlist as optimally as possible, it may be more computationally feasible to predict which individual swap improves QoR the most (it remains unclear how).
 
-We found no regularity in how relative positions, number of sinks or "conflicts" between nets affects QoR. Seeing as all considered metrics were tied to "static" features, future efforts may find more success through analyzing data collected inbetween router's iterations. 
+We found no consistent pattern in how relative positions, number of sinks, or “conflicts” between nets influence QoR. Since all considered metrics were tied to "static" features, future efforts may find more success through analyzing data collected inbetween router's iterations. 
