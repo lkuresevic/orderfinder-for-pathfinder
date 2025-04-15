@@ -3,6 +3,8 @@ All experiments were run using VPR 9.0.0, which was altered so that it loads an 
 
 Most experiments were automated using Python scripts which can be found on [GitHub](https://github.com/lkuresevic/orderfinder-for-pathfinder/). The repository contains scripts for running VPR for packing, placement and routing, as well as reading output files and visualizing results.
 
+Circuit and architecture - alu4.blif and k6_N10_40nm.xml
+
 # Evaluating Netlist Sorting Criteria
 Currently, netlists are sorted in descending order with regards to the number of sinks. An intuitive justification for this decision could be the assumption that routing high fanout nets first reduces routing conflcits and secures optimal critical path delay (CPD, which is the metric that we focus on in this work) for the longest spanning conenctions. However, it is known that sorting by fanout size does not provide optimal results.
 In order to validate this knowledge and evaluate alternatives, we tested several alternative approaches for sorting the netlist and how they fared against random permutations.
