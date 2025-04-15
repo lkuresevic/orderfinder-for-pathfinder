@@ -43,7 +43,7 @@ We arrived at the following conclusions:
 ## The relative position of nets being swapped matters...
 ...as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quality (no effect on/improved/worsened CPD).
 
-|i|j|CPD|net_name_i|clb_i_x_y|fouts_size_i|bbox_size_i|avg_mnhttn_dist_i|net_name_j|clb_j_x_y|fouts_size_j|bbox_size_j|avg_mnhttn_dist_j|
+| i | j | CPD | net_name_i | clb_i_x_y | fouts_size_i | bbox_size_i | avg_mnhttn_dist_i | (same for net_j)
 ![A](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_A.png)
 ![B](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_B.png)
 ![C](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_C.png)
