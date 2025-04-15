@@ -18,8 +18,12 @@ In order to validate this knowledge and evaluate alternatives, we tested several
 * **mean_manhattan_dist**: Sorts nets in descending order based on the mean Manhattan distance between all pairs of connected CLBs (including sink-to-sink).
 * **mean_manhattan_dist_i**: Sorts nets in ascending order by mean Manhattan distance.
 * **connection_conflicts**: Sorts nets by the number of geometric line segment crossings with other nets. Nets with more crossings are routed first.
+
+For the following two, a "congestion matrix" is created. It simplifies the representation of potential congestion by increasing the value of a tile/matrix element for every bounding box it is within.
 * **congestion|max_bounding_box_size**: Sorts nets by maximum congestion in the net’s bounding box, and in case of a tie, prioritizes nets with larger bounding box sizes.
-* **congestion|min_bounding_box_size**: Similar to the previous, but in case of congestion tie, prefers nets with smaller bounding boxes. 
+* **congestion|min_bounding_box_size**: Similar to the previous, but in case of congestion tie, prefers nets with smaller bounding boxes.
+
+It is worthwhile to note the relative simplicity of most of these criteria compared to which traits they are aiming to represent.
 
 The 10 random permutations were created by shuffling netlists retrieved from packing results. In order to account for noise from the simmulated annealing algorithm within VPR's placer, we created 5 different placements with 5 different seeds. 
 Most of our metrics required for the netlist to be sorted after placement, which means that the exact orders of nets differ from placement to placement.
@@ -39,6 +43,7 @@ We arrived at the following conclusions:
 ## The relative position of nets being swapped matters...
 ...as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quality (no effect on/improved/worsened CPD).
 
+|i|j|CPD|net_name_i|clb_i_x_y|fouts_size_i|bbox_size_i|avg_mnhttn_dist_i|net_name_j|clb_j_x_y|fouts_size_j|bbox_size_j|avg_mnhttn_dist_j|
 ![A](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_A.png)
 ![B](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_B.png)
 ![C](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_C.png)
