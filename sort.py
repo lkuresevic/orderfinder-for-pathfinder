@@ -40,11 +40,9 @@ def sort_list_by_connection_conflicts(df, placement):
                 lines.append(LineString([src, sink_coord]))
         return lines
 
-    # Preprocess: Convert stringified sink_clbs to lists
     df = df.copy()
-    df['sink_clbs'] = df['sink_clbs'].apply(eval)  # Caution: use ast.literal_eval for untrusted data
+    df['sink_clbs'] = df['sink_clbs'].apply(eval)
 
-    # Build dictionary of net_name -> list of LineString connections
     net_lines = {}
     for _, row in df.iterrows():
         lines = get_net_lines(row)
@@ -72,17 +70,24 @@ def sort_list_by_connection_conflicts(df, placement):
 
 
 def sort_list_by_congestion(df, placement, suffix):
+    def sort_key(item):
+        net, info = item
+        primary = info['max_congestion']
+        secondary = info['bounding_box_size']
+        if suffix == 'max_bounding_box_size':
+            secondary = -secondary 
+        return (primary, secondary)
+
     # Convert placement coordinates to integers
     int_placement = {clb: (int(float(x)), int(float(y))) for clb, (x, y) in placement.items()}
 
-    # Determine matrix size (min is 0, max is from placement)
+    # Determine matrix size
     max_x = max(coord[0] for coord in int_placement.values())
     max_y = max(coord[1] for coord in int_placement.values())
     congestion_matrix = np.zeros((max_x + 1, max_y + 1), dtype=int)
 
-    # Preprocess sink_clbs
     df = df.copy()
-    df['sink_clbs'] = df['sink_clbs'].apply(eval)  # Use literal_eval for safety in production
+    df['sink_clbs'] = df['sink_clbs'].apply(eval)
 
     # Populate congestion matrix
     for _, row in df.iterrows():
@@ -112,15 +117,6 @@ def sort_list_by_congestion(df, placement, suffix):
             'max_congestion': max_tile_congestion,
             'bounding_box_size': row['bounding_box_size']
         }
-
-    # Sort based on criteria
-    def sort_key(item):
-        net, info = item
-        primary = info['max_congestion']
-        secondary = info['bounding_box_size']
-        if suffix == 'max_bounding_box_size':
-            secondary = -secondary  # descending
-        return (primary, secondary)
 
     sorted_nets = sorted(net_congestion.items(), key=sort_key, reverse=True)
     return [net for net, _ in sorted_nets]
