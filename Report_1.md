@@ -29,7 +29,7 @@ Although the impact netlist order has on PathFinder's QoR is undisputable, it ap
 
 To further solidify this fact, we sorted the netlist by fanouts size in descending order, and then randomly shuffled the positions of the first 14 elements (the highest fanout ones). Displayed below are 5 best and 5 worst results obtained by using these slightly modified netlists.
 
-![Table 2]()
+![Table 2](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_2.png)
 
 # The Impact of A Single Swap
 In order to try and identify which order alterations have the biggest impact, swapped an element in the netlist vector (sorted by fanouts_size, decreasing) with its successor and ran routing, for every net in the netlist (except the last one). We then did the same over all placements we used in the previous experiments.
@@ -38,11 +38,11 @@ We came to the following conclusions:
 ## The relative position of nets being swapped matters,
 as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quantiy (no effect on/improved/worsened CPD).
 
-![A]()
-![B]()
-![C]()
-![D]()
-![E]()
+![A](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_A.png)
+![B](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_B.png)
+![C](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_C.png)
+![D](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_D.png)
+![E](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_E.png)
 
 We anticipated this when designing our matrics, but failed to predict in what way.
 
