@@ -35,8 +35,8 @@ To further solidify this fact, we sorted the netlist by fanouts size in descendi
 In order to try and identify which order alterations have the biggest impact, swapped an element in the netlist vector (sorted by fanouts_size, decreasing) with its successor and ran routing, for every net in the netlist (except the last one). We then did the same over all placements we used in the previous experiments.
 We came to the following conclusions:
 
-## The relative position of nets being swapped matters,
-as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quantiy (no effect on/improved/worsened CPD).
+## The relative position of nets being swapped matters...
+...as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quantiy (no effect on/improved/worsened CPD).
 
 ![A](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_A.png)
 ![B](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_B.png)
