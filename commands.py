@@ -1,6 +1,4 @@
 import subprocess
-
-from utils import *
    
 def run_command_in_terminal(command, directory):
     try:
