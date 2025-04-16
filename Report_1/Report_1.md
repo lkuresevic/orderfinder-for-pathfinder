@@ -51,7 +51,7 @@ We arrived at the following conclusions:
 ![D](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_D.png)
 ![E](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_E.png)
 
-We anticipated this when designing our matrics, but failed to predict in what way.
+We anticipated this when designing our criteria, but failed to predict in what way.
 
 ## A single swapping of two (even neighbouring) elements can significantly increase/decrease CPD 
 Although all of these netlists were just two inversions apart from each other (and one from the starting order), their QoR varied substantially. As a result, no sorting criterion which remotely simplifies the netlists' and RR graphs' representation cannot be relied upon, as minimal inaccuracies annul potential benefits of ordering the netlist precisely according to some yet be defined rule.
