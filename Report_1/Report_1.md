@@ -1,5 +1,5 @@
 # Setting Up The Environment
-All experiments were run using VPR 9.0.0, which was altered so that it loads an ordered netlist out of a .csv file, instead of sorting it by critera of descending number of sinks.
+All experiments were conducted using VPR 9.0.0, modified to load an ordered netlist from a .csv file rather than sorting it based on the default criterion of descending sink count.
 
 Most experiments were automated using Python scripts which can be found on [GitHub](https://github.com/lkuresevic/orderfinder-for-pathfinder/). The repository contains scripts for running VPR for packing, placement and routing, as well as reading output files and visualizing results.
 
