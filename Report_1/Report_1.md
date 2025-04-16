@@ -58,4 +58,4 @@ Although all of these netlists were just two inversions apart from each other (a
 
 Perhaps a framework could be designed to predict which individual swap improves QoR the most (it remains unclear how).
 
-We found no consistent pattern in how relative positions, number of sinks, or “conflicts” between nets influence QoR. Since all considered metrics were tied to "static" features, future efforts may find more success through analyzing data collected inbetween router's iterations. 
+We found no consistent pattern in how relative positions, number of sinks, or “conflicts” between nets influence QoR. Reordering pairs of seemingly unrelated nodes (far apart and non-overlapping bounding boxes) on occasion resulted in big variations to CPD, suggesting difficult to predict knock-on effects. Since all considered metrics were tied to "static" features, future efforts may find more success through analyzing data collected inbetween router's iterations. 
