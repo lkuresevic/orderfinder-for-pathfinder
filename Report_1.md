@@ -54,6 +54,8 @@ We arrived at the following conclusions:
 We anticipated this when designing our matrics, but failed to predict in what way.
 
 ## A single swapping of two (even neighbouring) elements can significantly increase/decrease CPD 
-Although all of these netlists were just two inversions apart from each other (and one from the starting order), their QoR varied substantially. Rather than aiming to develop an approach for sorting the netlist as optimally as possible, it may be more computationally feasible to predict which individual swap improves QoR the most (it remains unclear how).
+Although all of these netlists were just two inversions apart from each other (and one from the starting order), their QoR varied substantially. As a result, no sorting criterion which remotely simplifies the netlists' and RR graphs' representation cannot be relied upon, as minimal inaccuracies annul potential benefits of ordering the netlist precisely according to some yet be defined rule.
+
+Perhaps a framework could be designed to predict which individual swap improves QoR the most (it remains unclear how).
 
 We found no consistent pattern in how relative positions, number of sinks, or “conflicts” between nets influence QoR. Since all considered metrics were tied to "static" features, future efforts may find more success through analyzing data collected inbetween router's iterations. 
