@@ -28,13 +28,13 @@ It is worthwhile to note the relative simplicity of most of these criteria compa
 The 10 random permutations were created by shuffling netlists retrieved from packing results. In order to account for noise from the simmulated annealing algorithm within VPR's placer, we created 5 different placements with 5 different seeds. 
 Most of our metrics required for the netlist to be sorted after placement, which means that the exact orders of nets differ from placement to placement.
 
-![Table 1](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_1.png)
+![Table 1](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_1.png)
 
 While fanouts_size got significantly outshined at times, it was evident that no single metric or random permutation performed universally well, or even with reliable quality. Although the impact netlist order has on PathFinder's QoR is undisputable, it appears to have _little to do with giving priority to high fanout nets_, as fanouts_size_i (the complete inverse of the current approach) outperformed fanouts_size in 3 out of 5 tests.
 
 To further solidify _this_ fact, we sorted the netlist by fanout size in descending order, and then randomly shuffled the positions of the first 14 elements (the highest fanout ones). Displayed below are the 5 best and 5 worst results obtained by using these slightly modified netlists.
 
-![Table 2](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_2.png)
+![Table 2](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_2.png)
 
 # The Impact of A Single Swap
 In order to identify which order alterations have the greatest impact, we swapped each element in the netlist vector (originally sorted by fanouts_size in decreasing order) with its immediate successor, running routing after each swap—this was done for every net in the list except the last one. We repeated this process across all placements used in the previous experiments.
@@ -45,11 +45,11 @@ We arrived at the following conclusions:
 
 **| i | j | CPD | net_name_i | clb_i_x_y | fouts_size_i | bbox_size_i | avg_mnhttn_dist_i |** (same for net_j)
 
-![A](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_A.png)
-![B](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_B.png)
-![C](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_C.png)
-![D](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_D.png)
-![E](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/table_E.png)
+![A](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_A.png)
+![B](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_B.png)
+![C](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_C.png)
+![D](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_D.png)
+![E](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_E.png)
 
 We anticipated this when designing our matrics, but failed to predict in what way.
 
