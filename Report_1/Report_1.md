@@ -41,7 +41,7 @@ In order to identify which order alterations have the greatest impact, we swappe
 We arrived at the following conclusions:
 
 ## The relative position of nets being swapped matters...
-...as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quality (no effect on/improved/worsened CPD).
+...as demonstrated by varying effects these modifications produced across different placements, not only in quantity (how much), but also in quality (no effect on/improved/worsened CPD). We anticipated this when designing our criteria, but failed to predict in what way.
 
 **| i | j | CPD | net_name_i | clb_i_x_y | fouts_size_i | bbox_size_i | avg_mnhttn_dist_i |** (same for net_j)
 
@@ -50,8 +50,7 @@ We arrived at the following conclusions:
 ![C](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_C.png)
 ![D](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_D.png)
 ![E](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_E.png)
-
-We anticipated this when designing our criteria, but failed to predict in what way.
+_The worse resulting CPD is relative to other permutations, the more red its tile is. Best permutations are colored white and medium results are yellow._
 
 ## A single swapping of two (even neighbouring) elements can significantly increase/decrease CPD 
 Although all of these netlists were just two inversions apart from each other (and one from the starting order), their QoR varied substantially. As a result, no sorting criterion which remotely simplifies the netlists' and RR graphs' representation cannot be relied upon, as minimal inaccuracies annul potential benefits of ordering the netlist precisely according to some yet be defined rule.
