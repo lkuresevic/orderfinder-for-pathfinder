@@ -50,7 +50,7 @@ We arrived at the following conclusions:
 ![C](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_C.png)
 ![D](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_D.png)
 ![E](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/table_E.png)
-_The worse resulting CPD is relative to other permutations, the more red its tile is. Best permutations are colored white and medium results are yellow._
+_The worse resulting CPD is relative to other permutations, the more red its tile is. Best permutations are colored white and medium results are yellow. Many of the worst/best results were achieved with some of the other ~670 net orders, not displayed here but found in the [repository](https://github.com/lkuresevic/orderfinder-for-pathfinder/blob/main/Report_1/)._
 
 ## A single swapping of two (even neighbouring) elements can significantly increase/decrease CPD 
 Although all of these netlists were just two inversions apart from each other (and one from the starting order), their QoR varied substantially. As a result, no sorting criterion which remotely simplifies the netlists' and RR graphs' representation cannot be relied upon, as minimal inaccuracies annul potential benefits of ordering the netlist precisely according to some yet be defined rule.
